@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trabahanap - Job Posting Platform</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <h1>🏢 Trabahanap</h1>
+                <p class="subtitle">Job Posting Platform - Baliwag, Bulacan</p>
+            </div>
+            <div class="nav-links">
+                <button class="btn btn-primary" onclick="showSection('bulletin-board')">👥 View Jobs</button>
+                <button class="btn btn-success" onclick="showSection('post-profile')">📝 Post Profile</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Welcome Section -->
+        <section id="welcome" class="section active">
+            <div class="welcome-content">
+                <h2>Welcome to Trabahanap</h2>
+                <p>Your platform to connect with job opportunities in Baliwag, Bulacan</p>
+                <p class="welcome-description">Whether you're looking for a job or employers looking for talent, Trabahanap is your solution!</p>
+                
+                <div class="welcome-buttons">
+                    <button class="btn btn-primary btn-large" onclick="showSection('bulletin-board')">
+                        👥 View Job Seekers
+                    </button>
+                    <button class="btn btn-success btn-large" onclick="showSection('post-profile')">
+                        📝 Post Your Profile
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Bulletin Board Section -->
+        <section id="bulletin-board" class="section">
+            <h2>📋 Job Seekers Bulletin Board</h2>
+            <div class="filter-section">
+                <input type="text" id="searchInput" placeholder="Search by name, skills, or barangay..." class="search-input">
+                <select id="barangayFilter" class="filter-select">
+                    <option value="">All Barangays</option>
+                </select>
+            </div>
+            <div id="jobSeekersList" class="job-seekers-list">
+                <p class="loading">Loading job seekers...</p>
+            </div>
+        </section>
+
+        <!-- Post Profile Section -->
+        <section id="post-profile" class="section">
+            <h2>📝 Post Your Job Seeker Profile</h2>
+            <form id="profileForm" class="profile-form">
+                <input type="hidden" id="profileId" value="">
+
+                <div class="form-group">
+                    <label for="name">Full Name *</label>
+                    <input type="text" id="name" required placeholder="Enter your full name">
+                </div>
+
+                <div class="form-group">
+                    <label for="barangay">Barangay *</label>
+                    <select id="barangay" required>
+                        <option value="">Select your barangay</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="address">Complete Address *</label>
+                    <textarea id="address" required placeholder="Enter your complete address in Baliwag"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">Phone Number (Optional)</label>
+                    <input type="tel" id="phone" placeholder="e.g., 09123456789">
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email Address *</label>
+                    <input type="email" id="email" required placeholder="your@email.com">
+                </div>
+
+                <div class="form-group">
+                    <label for="position_desired">Position Desired</label>
+                    <input type="text" id="position_desired" placeholder="e.g., Driver, Helper, Clerk">
+                </div>
+
+                <div class="form-group">
+                    <label for="experience">Work Experience</label>
+                    <textarea id="experience" placeholder="Describe your work experience..."></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="skills">Skills</label>
+                    <textarea id="skills" placeholder="List your skills separated by comma..."></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="facebook_link">Facebook Profile Link (Optional)</label>
+                    <input type="url" id="facebook_link" placeholder="https://facebook.com/yourprofile">
+                </div>
+
+                <div class="form-buttons">
+                    <button type="submit" class="btn btn-success">✅ Submit Profile</button>
+                    <button type="button" class="btn btn-secondary" onclick="resetForm()">Clear Form</button>
+                </div>
+            </form>
+
+            <div id="myProfiles" class="my-profiles">
+                <h3>📌 My Posted Profiles</h3>
+                <div id="myProfilesList" class="profiles-list">
+                    <p class="loading">No profiles yet. Post your first profile above!</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2026 Trabahanap - Job Posting Platform for Baliwag, Bulacan</p>
+        <p>Connect. Apply. Succeed.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
